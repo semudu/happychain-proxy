@@ -17,7 +17,7 @@ def hello():
 @app.route("/transaction/received/team/<team_id>")
 def get_received_transactions(team_id):
     response = requests.get(config.API_URL + "/transaction/received/team/" + team_id, auth=auth)
-    return response.text, response.status_code
+    return response.json(), response.status_code
 
 
 if __name__ == "__main__":
