@@ -14,9 +14,9 @@ def hello():
     return response.text, response.status_code
 
 
-@app.route("/transaction/received/team/<team_id>")
-def get_received_transactions(team_id):
-    response = requests.get(config.API_URL + "/transaction/received/team/" + team_id, auth=auth)
+@app.route("/transaction/received/team/<team_id>/limit/<limit>")
+def get_received_transactions(team_id, limit):
+    response = requests.get("%s/transaction/received/team/%s/limit/%s" % (config.API_URL, team_id, limit), auth=auth)
     return response.json(), response.status_code
 
 
